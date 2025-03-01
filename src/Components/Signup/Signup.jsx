@@ -1,22 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Logo from '../../olx-logo.png';
 import './Signup.css';
 
 export default function Signup() {
+    const[userName,setUserName]=useState("");
+    const[email,setEmail]=useState("");
+    const[phone,setPhone]=useState("");
+    const[password,setPassword]=useState("");
+const handleSubmit=(e)=>{
+  e.preventDefualt()
+  console.log(userName);
+  
+}
+    
   return (
     <div>
       <div className="signupParentDiv">
         <img width="200px" height="200px" src={Logo}></img>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label htmlFor="fname">Username</label>
           <br />
           <input
             className="input"
             type="text"
             id="fname"
+            value={userName}
+            onChange={(e)=>setUserName(e.target.value)}
             name="name"
-            defaultValue="John"
+            defaultValue="afeeda"
           />
           <br />
           <label htmlFor="fname">Email</label>
@@ -25,6 +37,8 @@ export default function Signup() {
             className="input"
             type="email"
             id="fname"
+            value={email}
+            onChange={(e)=>{setEmail(e.target.value)}}
             name="email"
             defaultValue="John"
           />
@@ -35,6 +49,8 @@ export default function Signup() {
             className="input"
             type="number"
             id="lname"
+            value={phone}
+            onChange={(e)=>setPhone(e.target.value)}
             name="phone"
             defaultValue="Doe"
           />
@@ -45,6 +61,8 @@ export default function Signup() {
             className="input"
             type="password"
             id="lname"
+            value={password}
+            onChange={(e)=>setPassword(e.target.value)}
             name="password"
             defaultValue="Doe"
           />
